@@ -11,6 +11,7 @@ Python 3 Code Snippets
    :caption: Contents:
 
    main
+   file
 
 
 Indices and tables
