@@ -12,6 +12,8 @@ Python 3 Code Snippets
 
    main
    file
+   keyboard
+   event
 
 
 Indices and tables
