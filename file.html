@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>File I/O &mdash; Python 3  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Keyboard Routines" href="keyboard.html" />
+    <link rel="prev" title="Python 3 Main" href="main.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python 3
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Built In Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Python 3 Main</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">Keyboard Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event.html">Event Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html">Date Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Class</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 3</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>File I/O</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/file.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file-i-o">
+<h1>File I/O<a class="headerlink" href="#file-i-o" title="Permalink to this headline">¶</a></h1>
+<p>open(file, mode=’r’, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)</p>
+<p>Open file and return a corresponding file object. If the file cannot be opened, an OSError is raised.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">do</span> <span class="n">something</span> <span class="k">with</span> <span class="n">f</span>
+</pre></div>
+</div>
+<p>Open a text file for reading</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Open a text file for appending <a class="footnote-reference brackets" href="#id4" id="id1">1</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># using write to add text</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Some random text</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="c1"># using print() to add text</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;More random text&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Modes</p>
+<ul class="simple">
+<li><p>r     open for reading (default) <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p></li>
+<li><p>w     open for writing, truncating <a class="footnote-reference brackets" href="#id6" id="id3">3</a> the file first</p></li>
+<li><p>x     open for exclusive creation, if the file already exists returns FileExistsError:</p></li>
+<li><p>a     open for writing, appending to the end of the file if it exists</p></li>
+<li><p>b     binary mode</p></li>
+<li><p>t     text mode (default)</p></li>
+<li><p>+    open for updating (reading and writing)</p></li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>write does not add a new line, you need to add it yourself with \n</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>If the file is not found a FileNotFoundError: is returned</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>truncating a file means removing the file contents without deleting the file</p>
+</dd>
+</dl>
+<ul>
+<li><p>class io.IOBase</p>
+<blockquote>
+<div><p>The abstract base class for all I/O classes, acting on streams of bytes. There is no public constructor.</p>
+<p>This class provides empty abstract implementations for many methods that derived classes can override selectively; the default implementations represent a file that cannot be read, written or seeked.</p>
+<p>Even though IOBase does not declare read() or write() because their signatures will vary, implementations and clients should consider those methods part of the interface. Also, implementations may raise a ValueError (or UnsupportedOperation) when operations they do not support are called.</p>
+<p>The basic type used for binary data read from or written to a file is bytes. Other bytes-like objects are accepted as method arguments too. Text I/O classes work with str data.</p>
+<p>Note that calling any method (even inquiries) on a closed stream is undefined. Implementations may raise ValueError in this case.</p>
+<p>IOBase (and its subclasses) supports the iterator protocol, meaning that an IOBase object can be iterated over yielding the lines in a stream. Lines are defined slightly differently depending on whether the stream is a binary stream (yielding bytes), or a text stream (yielding character strings). See readline() below.</p>
+<p>IOBase is also a context manager and therefore supports the with statement. In this example, file is closed after the with statement’s suite is finished—even if an exception occurs:</p>
+<dl class="simple">
+<dt>with open(‘spam.txt’, ‘w’) as file:</dt><dd><p>file.write(‘Spam and eggs!’)</p>
+</dd>
+</dl>
+<p>IOBase provides these data attributes and methods:</p>
+</div></blockquote>
+</li>
+<li><p>close()</p>
+<blockquote>
+<div><p>Flush and close this stream. This method has no effect if the file is already closed. Once the file is closed, any operation on the file (e.g. reading or writing) will raise a ValueError.</p>
+<p>As a convenience, it is allowed to call this method more than once; only the first call, however, will have an effect.</p>
+</div></blockquote>
+</li>
+<li><p>closed</p>
+<blockquote>
+<div><p>True if the stream is closed.</p>
+</div></blockquote>
+</li>
+<li><p>fileno()</p>
+<blockquote>
+<div><p>Return the underlying file descriptor (an integer) of the stream if it exists. An OSError is raised if the IO object does not use a file descriptor.</p>
+</div></blockquote>
+</li>
+<li><p>flush()</p>
+<blockquote>
+<div><p>Flush the write buffers of the stream if applicable. This does nothing for read-only and non-blocking streams.</p>
+</div></blockquote>
+</li>
+<li><p>isatty()</p>
+<blockquote>
+<div><p>Return True if the stream is interactive (i.e., connected to a terminal/tty device).</p>
+</div></blockquote>
+</li>
+<li><p>readable()</p>
+<blockquote>
+<div><p>Return True if the stream can be read from. If False, read() will raise OSError.</p>
+</div></blockquote>
+</li>
+<li><p>readline(size=-1)</p>
+<blockquote>
+<div><p>Read and return one line from the stream. If size is specified, at most size bytes will be read.</p>
+<p>The line terminator is always b’n’ for binary files; for text files, the newline argument to open() can be used to select the line terminator(s) recognized.</p>
+</div></blockquote>
+</li>
+<li><p>readlines(hint=-1)</p>
+<blockquote>
+<div><p>Read and return a list of lines from the stream. hint can be specified to control the number of lines read: no more lines will be read if the total size (in bytes/characters) of all lines so far exceeds hint.</p>
+<p>Note that it’s already possible to iterate on file objects using for line in file: … without calling file.readlines().</p>
+<p>list(file_object) does the same thing as file_object.readlines()</p>
+</div></blockquote>
+</li>
+<li><p>seek(offset, whence=SEEK_SET)</p>
+<blockquote>
+<div><p>Change the stream position to the given byte offset. offset is interpreted relative to the position indicated by whence. The default value for whence is SEEK_SET. Values for whence are:</p>
+<blockquote>
+<div><p>SEEK_SET or 0 – start of the stream (the default); offset should be zero or positive</p>
+<p>SEEK_CUR or 1 – current stream position; offset may be negative</p>
+<p>SEEK_END or 2 – end of the stream; offset is usually negative</p>
+</div></blockquote>
+<p>Return the new absolute position.</p>
+<p>New in version 3.1: The SEEK_* constants.</p>
+<p>New in version 3.3: Some operating systems could support additional values, like os.SEEK_HOLE or os.SEEK_DATA. The valid values for a file could depend on it being open in text or binary mode.</p>
+</div></blockquote>
+</li>
+<li><p>seekable()</p>
+<blockquote>
+<div><p>Return True if the stream supports random access. If False, seek(), tell() and truncate() will raise OSError.</p>
+</div></blockquote>
+</li>
+<li><p>tell()</p>
+<blockquote>
+<div><p>Return the current stream position.</p>
+</div></blockquote>
+</li>
+<li><p>truncate(size=None)</p>
+<blockquote>
+<div><p>Resize the stream to the given size in bytes (or the current position if size is not specified). The current stream position isn’t changed. This resizing can extend or reduce the current file size. In case of extension, the contents of the new file area depend on the platform (on most systems, additional bytes are zero-filled). The new file size is returned.</p>
+<p>Changed in version 3.5: Windows will now zero-fill files when extending.</p>
+</div></blockquote>
+</li>
+<li><p>writable()</p>
+<blockquote>
+<div><p>Return True if the stream supports writing. If False, write() and truncate() will raise OSError.</p>
+</div></blockquote>
+</li>
+<li><p>ritelines(lines)</p>
+<blockquote>
+<div><p>Write a list of lines to the stream. Line separators are not added, so it is usual for each of the lines provided to have a line separator at the end.</p>
+</div></blockquote>
+</li>
+<li><p>__del__()</p>
+<blockquote>
+<div><p>Prepare for object destruction. IOBase provides a default implementation of this method that calls the instance’s close() method.</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="keyboard.html" class="btn btn-neutral float-right" title="Keyboard Routines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="main.html" class="btn btn-neutral float-left" title="Python 3 Main" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, JT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

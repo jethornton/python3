@@ -1,0 +1,1262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Python 3 &mdash; Python 3  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Built In Functions" href="functions.html" />
+    <link rel="prev" title="Python 3 Code Snippets" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python 3
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#builtin-types">Builtin Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#boolean-types">Boolean Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numeric-types">Numeric Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sequence-types">Sequence Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mutable-sequences">Mutable Sequences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#immutable-sequences">Immutable Sequences</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#set-types">Set Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapping-types">Mapping Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#statements">Statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#assert">assert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pass">pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return">return</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#break">break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#continue">continue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import">import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#global">global</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-operations">Sequence Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#slicing">Slicing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dictionaries">Dictionaries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iteration">Iteration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sorting">Sorting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensions">Comprehensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reversal">Reversal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-sorting">List Sorting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#f-strings">F Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-list">From List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-methods">String Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isalnum">isalnum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#split">split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strip">strip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#join">join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#str-vs-repr">str vs repr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iterators">Iterators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iterator-vs-iterable">Iterator vs Iterable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-for-loop-works">How for loop works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-iterator">Creating an Iterator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-iteration">Functional Iteration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#map">map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter">filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reduce">reduce</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#decorators">Decorators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classmethod">&#64;classmethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#staticmethod">&#64;staticmethod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#property">&#64;property</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generators">Generators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-yield">Using yield</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generator-expressions">Generator Expressions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-builtin-functions">Other Builtin Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#any">any</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all">all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chr">chr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isinstance">isinstance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#len">len</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max">max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#min">min</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ord">ord</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pow">pow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-gotchas">Common Gotchas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nested-list-initialization">Nested List Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutable-default-arguments">Mutable Default Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Built In Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">Python 3 Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file.html">File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard.html">Keyboard Routines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event.html">Event Loop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html">Date Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class.html">Class</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python 3</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Python 3</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-3">
+<h1>Python 3<a class="headerlink" href="#python-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="builtin-types">
+<h2>Builtin Types<a class="headerlink" href="#builtin-types" title="Permalink to this headline">¶</a></h2>
+<p>In this section I have included information on the more basic builtin types. For information on more specialized builtin types, check out the [Python documentation](<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">https://docs.python.org/3/library/stdtypes.html</a>)</p>
+<div class="section" id="boolean-types">
+<h3>Boolean Types<a class="headerlink" href="#boolean-types" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;bool&#39;
+</pre></div>
+</div>
+<dl class="simple">
+<dt>By default, an object is considered True unless its class defines either a __bool__() method that returns False or a __len__() method that returns zero. Here are most of the builtin objects considered False:</dt><dd><p>constants defined to be false: None and False
+zero of any numeric type: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
+empty sequences and collections: ‘’, (), [], {}, set(), range(0)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="numeric-types">
+<h3>Numeric Types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;int&#39;
+class &#39;float&#39;
+class &#39;complex&#39;
+</pre></div>
+</div>
+<p>Integers have unlimited precision. Floating point numbers are usually implemented using double in C, and are therefore systemdependent. Complex numbers have a real and imaginary part, which can be accessed using z.real and z.imag, respectively. Complex numbers must include j appended to a numeric literal (0j is acceptable for when you want a complex value with no imaginary part).</p>
+<p>The standard libarary includes additional numeric types, [Fraction](<a class="reference external" href="https://docs.python.org/3/library/fractions.html#modulefractions)s">https://docs.python.org/3/library/fractions.html#modulefractions)s</a> which hold rationals, and [Decimal](<a class="reference external" href="https://docs.python.org/3/library/decimal.html#moduledecimal)s">https://docs.python.org/3/library/decimal.html#moduledecimal)s</a> which hold floatingpoint numbers with userdefinable precision.</p>
+</div>
+<div class="section" id="sequence-types">
+<h3>Sequence Types<a class="headerlink" href="#sequence-types" title="Permalink to this headline">¶</a></h3>
+<p>Immutable sequences have support for the hash() builtin, while mutable sequences do not. This means that immutable sequences can be used as dict keys or stored in set and frozenset instances, while mutable sequences cannot.</p>
+<div class="section" id="mutable-sequences">
+<h4>Mutable Sequences<a class="headerlink" href="#mutable-sequences" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;list&#39;
+class &#39;bytearray
+</pre></div>
+</div>
+<p>bytearray objects are a mutable counterpart to bytes objects.</p>
+</div>
+<div class="section" id="immutable-sequences">
+<h4>Immutable Sequences<a class="headerlink" href="#immutable-sequences" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;tuple&#39;
+class &#39;range&#39;
+class &#39;str&#39;
+class &#39;bytes&#39;
+</pre></div>
+</div>
+<dl class="simple">
+<dt>bytes objects are sequences of single bytes. The syntax for bytes literals is largely the same as that for string literals, except that a b prefix is added:</dt><dd><p>Single quotes: b’still allows embedded “double” quotes’
+Double quotes: b”still allows embedded ‘single’ quotes”
+Triple quotes: b’’’3 single quotes’’’, b”””3 double quotes”””</p>
+</dd>
+</dl>
+<p>Only ASCII chars are permitted in bytes literals.
+bytes objects actually behave like immutable sequences of integers, with each value restricted to 0 &lt;= x &lt; 256.</p>
+<dl class="simple">
+<dt>bytes objects can be created in several ways:</dt><dd><p>A zerofilled bytes object of a specific length: bytes(10)
+From an iterable of integers: bytes(range(20))
+Copying existing binary data via the buffer protocol: bytes(obj)</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="set-types">
+<h3>Set Types<a class="headerlink" href="#set-types" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;set&#39;
+class &#39;frozenset&#39;
+</pre></div>
+</div>
+<p>set is mutable, while frozenset is immutable.
+Note that since frozenset is immutable, it must be entirely populated at the moment of construction. It cannot use the literal curly brace syntax that ordinary set uses, as that syntax is reserved for set.</p>
+<p>Instead, use frozenset([iterable]).</p>
+</div>
+<div class="section" id="mapping-types">
+<h3>Mapping Types<a class="headerlink" href="#mapping-types" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>class &#39;dict&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statements">
+<h2>Statements<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="assert">
+<h3>assert<a class="headerlink" href="#assert" title="Permalink to this headline">¶</a></h3>
+<p>Assert statements are a convenient way to insert debugging assertions into a program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">expression</span> <span class="p">[</span><span class="s2">&quot;,&quot;</span> <span class="n">expression</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python Verions must be 3.6 or newer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pass">
+<h3>pass<a class="headerlink" href="#pass" title="Permalink to this headline">¶</a></h3>
+<p>pass is a null operation — when it is executed, nothing happens. It is useful as a placeholder when a statement is required syntactically, but no code needs to be executed, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span> <span class="k">pass</span>    <span class="c1"># a function that does nothing (yet)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">:</span> <span class="k">pass</span>       <span class="c1"># a class with no methods (yet)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return">
+<h3>return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h3>
+<p>return may only occur syntactically nested in a function definition, not within a nested class definition.</p>
+<p>If an expression list is present, it is evaluated, else None is substituted.</p>
+<p>return leaves the current function call with the expression list (or None) as return value.</p>
+<p>When return passes control out of a try statement with a finally clause, that finally clause is executed before really leaving the function.</p>
+<p>In a generator function, the return statement indicates that the generator is done and will cause StopIteration to be raised. The returned value (if any) is used as an argument to construct StopIteration and becomes the StopIteration.value attribute.</p>
+<p>In an asynchronous generator function, an empty return statement indicates that the asynchronous generator is done and will cause StopAsyncIteration to be raised. A non-empty return statement is a syntax error in an asynchronous generator function.</p>
+</div>
+<div class="section" id="break">
+<h3>break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h3>
+<p>break may only occur syntactically nested in a for or while loop, but not nested in a function or class definition within that loop.</p>
+<p>It terminates the nearest enclosing loop, skipping the optional else clause if the loop has one.</p>
+<p>If a for loop is terminated by break, the loop control target keeps its current value.</p>
+<p>When break passes control out of a try statement with a finally clause, that finally clause is executed before really leaving the loop.</p>
+</div>
+<div class="section" id="continue">
+<h3>continue<a class="headerlink" href="#continue" title="Permalink to this headline">¶</a></h3>
+<p>continue may only occur syntactically nested in a for or while loop, but not nested in a function or class definition within that loop. It continues with the next cycle of the nearest enclosing loop.</p>
+<p>When continue passes control out of a try statement with a finally clause, that finally clause is executed before really starting the next loop cycle.</p>
+</div>
+<div class="section" id="import">
+<h3>import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<p>The basic import statement (no from clause) is executed in two steps:</p>
+<ol class="arabic simple">
+<li><p>find a module, loading and initializing it if necessary</p></li>
+<li><p>define a name or names in the local namespace for the scope where the import statement occurs.</p></li>
+</ol>
+<p>When the statement contains multiple clauses (separated by commas) the two steps are carried out separately for each clause, just as though the clauses had been separated out into individual import statements.</p>
+<p>The details of the first step, finding and loading modules are described in greater detail in the section on the import system, which also describes the various types of packages and modules that can be imported, as well as all the hooks that can be used to customize the import system. Note that failures in this step may indicate either that the module could not be located, or that an error occurred while initializing the module, which includes execution of the module’s code.</p>
+<p>If the requested module is retrieved successfully, it will be made available in the local namespace in one of three ways:</p>
+<ul class="simple">
+<li><p>If the module name is followed by as, then the name following as is
+bound directly to the imported module.</p></li>
+<li><p>If no other name is specified, and the module being imported is a top
+level module, the module’s name is bound in the local namespace as a
+reference to the imported module</p></li>
+<li><p>If the module being imported is not a top level module, then the name
+of the top level package that contains the module is bound in the
+local namespace as a reference to the top level package. The imported
+module must be accessed using its full qualified name rather than directly</p></li>
+</ul>
+<p>The from form uses a slightly more complex process:</p>
+<ol class="arabic simple">
+<li><p>find the module specified in the from clause, loading and initializing it if necessary;</p></li>
+<li><p>for each of the identifiers specified in the import clauses:</p>
+<ol class="arabic simple">
+<li><p>check if the imported module has an attribute by that name</p></li>
+<li><p>if not, attempt to import a submodule with that name and then check
+the imported module again for that attribute</p></li>
+<li><p>if the attribute is not found, ImportError is raised.</p></li>
+<li><p>otherwise, a reference to that value is stored in the local
+namespace, using the name in the as clause if it is present,
+otherwise using the attribute name</p></li>
+</ol>
+</li>
+</ol>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">foo</span>                 <span class="c1"># foo imported and bound locally</span>
+<span class="kn">import</span> <span class="nn">foo.bar.baz</span>         <span class="c1"># foo.bar.baz imported, foo bound locally</span>
+<span class="kn">import</span> <span class="nn">foo.bar.baz</span> <span class="k">as</span> <span class="nn">fbb</span>  <span class="c1"># foo.bar.baz imported and bound as fbb</span>
+<span class="kn">from</span> <span class="nn">foo.bar</span> <span class="kn">import</span> <span class="n">baz</span>    <span class="c1"># foo.bar.baz imported and bound as baz</span>
+<span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="n">attr</span>       <span class="c1"># foo imported and foo.attr bound as attr</span>
+</pre></div>
+</div>
+<p>If the list of identifiers is replaced by a star (‘*’), all public names defined in the module are bound in the local namespace for the scope where the import statement occurs.</p>
+<p>The public names defined by a module are determined by checking the module’s namespace for a variable named __all__; if defined, it must be a sequence of strings which are names defined or imported by that module. The names given in __all__ are all considered public and are required to exist. If __all__ is not defined, the set of public names includes all names found in the module’s namespace which do not begin with an underscore character (‘_’). __all__ should contain the entire public API. It is intended to avoid accidentally exporting items that are not part of the API (such as library modules which were imported and used within the module).</p>
+<p>The wild card form of import — from module import * — is only allowed at the module level. Attempting to use it in class or function definitions will raise a SyntaxError.</p>
+<p>When specifying what module to import you do not have to specify the absolute name of the module. When a module or package is contained within another package it is possible to make a relative import within the same top package without having to mention the package name. By using leading dots in the specified module or package after from you can specify how high to traverse up the current package hierarchy without specifying exact names. One leading dot means the current package where the module making the import exists. Two dots means up one package level. Three dots is up two levels, etc. So if you execute from . import mod from a module in the pkg package then you will end up importing pkg.mod. If you execute from ..subpkg2 import mod from within pkg.subpkg1 you will import pkg.subpkg2.mod. The specification for relative imports is contained in the Package Relative Imports section.</p>
+<p>importlib.import_module() is provided to support applications that determine dynamically the modules to be loaded.</p>
+<p>Raises an auditing event import with arguments module, filename, sys.path, sys.meta_path, sys.path_hooks.</p>
+</div>
+<div class="section" id="global">
+<h3>global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h3>
+<p>The global statement is a declaration which holds for the entire current code block. It means that the listed identifiers are to be interpreted as globals. It would be impossible to assign to a global variable without global, although free variables may refer to globals without being declared global.</p>
+<p>Names listed in a global statement must not be used in the same code block textually preceding that global statement.</p>
+<p>Names listed in a global statement must not be defined as formal parameters or in a for loop control target, class definition, function definition, import statement, or variable annotation.</p>
+<p>Programmer’s note: global is a directive to the parser. It applies only to code parsed at the same time as the global statement. In particular, a global statement contained in a string or code object supplied to the built-in exec() function does not affect the code block containing the function call, and code contained in such a string is unaffected by global statements in the code containing the function call. The same applies to the eval() and compile() functions.</p>
+</div>
+</div>
+<div class="section" id="sequence-operations">
+<h2>Sequence Operations<a class="headerlink" href="#sequence-operations" title="Permalink to this headline">¶</a></h2>
+<p>The operations in the following table are supported by most sequence
+types, both mutable and immutable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="ow">in</span> <span class="n">s</span> <span class="c1"># True if an item of s is equal to x, else False</span>
+
+<span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span> <span class="c1"># False if an item of s is equal to x, else True</span>
+</pre></div>
+</div>
+<p>While the in and not in operations are used only for simple containment
+testing in the general case, some specialised sequences (such as str,
+bytes and bytearray) also use them for subsequence testing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;gg&quot;</span> <span class="ow">in</span> <span class="s2">&quot;eggs&quot;</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+<p>Concatenating immutable sequences always results in a new object.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span> <span class="c1"># concatenation of s and t</span>
+</pre></div>
+</div>
+<div class="section" id="slicing">
+<h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h3>
+<p>If i or j is negative, the index is relative to the end of sequence s:
+len(s) + i or len(s) + j is substituted. But note that -0 is still 0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># ith item of s, origin 0</span>
+</pre></div>
+</div>
+<p>The slice of s from i to j is defined as the sequence of items with
+index k such that i &lt;= k &lt; j. If i or j is greater than len(s), use
+len(s). If i is omitted or None, use 0. If j is omitted or None, use
+len(s). If i is greater than or equal to j, the slice is empty.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">]</span> <span class="c1"># slice of s from i to j</span>
+</pre></div>
+</div>
+<p>The slice of s from i to j with step k is defined as the sequence of
+items with index x = i + n*k such that 0 &lt;= n &lt; (j-i)/k. In other words,
+the indices are i, i+k, i+2*k, i+3*k and so on, stopping when j is
+reached (but never including j). When k is positive, i and j are reduced
+to len(s) if they are greater. When k is negative, i and j are reduced
+to len(s) - 1 if they are greater. If i or j are omitted or None, they
+become “end” values (which end depends on the sign of k). Note, k cannot
+be zero. If k is None, it is treated like 1.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span> <span class="c1"># slice of s from i to j with step k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="iteration">
+<h3>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">¶</a></h3>
+<p>Get w/ default value if key not in dict:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1"># get retrieves value for k, or 0 if k not in dict</span>
+</pre></div>
+</div>
+<p>Iterating a dict iterates only the keys:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>       <span class="c1"># k will be each key, not each keyvalue pair</span>
+</pre></div>
+</div>
+<p>Testing membership: if k in dict: …</p>
+<p>To get actual keyvalue pairs at the same time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</pre></div>
+</div>
+<p>applies to comprehensions as well: new_d = {k: v+1 for k,v in d.items()}</p>
+</div>
+<div class="section" id="sorting">
+<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>It is not possible to sort a dictionary, only to get a representation of a dictionary that is sorted. Dictionaries are inherently orderless, but other types, such as lists and tuples, are not. So you need an ordered data type to represent sorted values, which will be a list—probably a list of tuples.</dt><dd><dl class="simple">
+<dt>sorted(d.items())</dt><dd><p>sorted list of keyvalue pairs by key
+by value: sorted(d.items(), key=lambda x: x[1]</p>
+</dd>
+<dt>sorted(d)</dt><dd><p>sorted list of keys only
+sorted list of keys by value: sorted(d, key=lambda x: d[x])</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comprehensions">
+<h3>Comprehensions<a class="headerlink" href="#comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>General Syntax:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span> <span class="k">if</span> <span class="n">conditional</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">conditional</span><span class="p">:</span>
+                                <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Note how the order of the for and if statements remains the same.
+For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+                                <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>is the same as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<p>Can use comprehensions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span> <span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</pre></div>
+</div>
+<p>2D list (list of lists):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="c1"># [[], [], []]</span>
+</pre></div>
+</div>
+<p>This is useful for a “visited” grid of some kind (common in Dynamic Programming problems):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">visited</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">))]</span>
+</pre></div>
+</div>
+<p><em>BE CAREFUL</em> when initializing a matrix.
+Do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>NOT</strong> this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+</pre></div>
+</div>
+<p>The latter method makes copies of the <strong>reference</strong> to the original list, thus any modification to one row will change the other rows in the same way. The first method does not do this.</p>
+<p>A list can be created from a string using list(my_str)
+We can apply a filter as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">my_str</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reversal">
+<h3>Reversal<a class="headerlink" href="#reversal" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>my_list[::1]</dt><dd><p>returns copy of list in reverse</p>
+</dd>
+<dt>reversed(my_list)</dt><dd><p>returns an iterator on the list in reverse
+can turn into a list via list(reversed(my_list))</p>
+</dd>
+<dt>my_list.reverse()</dt><dd><p>actually modifies the list</p>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="list-sorting">
+<h3>List Sorting<a class="headerlink" href="#list-sorting" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="simple">
+<dt>sorted(my_list)</dt><dd><p>returns copy of sorted list</p>
+</dd>
+<dt>my_list.sort()</dt><dd><p>actually modifies the list</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>By default, these methods will sort the list in ascending order.
+For descending order, we can supply the arg reverse=True to either of the aforementioned methods.</p>
+<p>We can also override the key for sorting by supplying the key arg.
+For example, if we have a list of tuples and we want to use the second item as the key:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># list1 is now [(4, 1), (1, 2), (3, 3)]</span>
+</pre></div>
+</div>
+<p>Additionally, if we want to sort in descending order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># list1 is now [(3, 3), (1, 2), (4, 1)]</span>
+</pre></div>
+</div>
+<p>When using sorted() it works the same, except we supply the list as the first arg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list2</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="f-strings">
+<h3>F Strings<a class="headerlink" href="#f-strings" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.python.org/">Python</a></p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0498/">PEP 498</a>
+Literal String Interpolation introduced in version 3.6</p>
+<p>f-strings are evaluated at runtime, any valid Python expression can be in them.</p>
+<ul class="simple">
+<li><p>Either <cite>f</cite> or <cite>F</cite> can denote a F String.</p></li>
+<li><p>Functions or Methods can be called inside a F String</p></li>
+</ul>
+<p>Multi line example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;John Doe&#39;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="s1">&#39;Yes&#39;</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name = </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> &quot;</span>
+                                        <span class="sa">f</span><span class="s2">&quot;Age = </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> &quot;</span>
+                                        <span class="sa">f</span><span class="s2">&quot;Sex = </span><span class="si">{</span><span class="n">sex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">message</span>
+<span class="s1">&#39;Name = John Doe Age = 50 Sex = Yes&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="from-list">
+<h3>From List<a class="headerlink" href="#from-list" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;te&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span> <span class="c1"># &quot;test123_&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span> <span class="c1"># &quot;test123&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-methods">
+<h3>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h3>
+<p>Python has a lot of useful string methods. A few of them are shown below.
+For a complete list, see the [documentation](<a class="reference external" href="https://docs.python.org/3.7/library/string.html">https://docs.python.org/3.7/library/string.html</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="nb">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">width</span><span class="p">[,</span> <span class="n">fillchar</span><span class="p">])</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">sub</span><span class="p">[,</span> <span class="n">start</span><span class="p">[,</span> <span class="n">end</span><span class="p">]])</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">[,</span> <span class="n">start</span><span class="p">[,</span> <span class="n">end</span><span class="p">]])</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">sub</span><span class="p">[,</span> <span class="n">start</span><span class="p">[,</span> <span class="n">end</span><span class="p">]])</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">width</span><span class="p">[,</span> <span class="n">fillchar</span><span class="p">])</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+       <span class="nb">str</span><span class="o">.</span><span class="n">lstrip</span><span class="p">([</span><span class="n">chars</span><span class="p">])</span>
+
+<span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">:</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isalnum">
+<h3>isalnum<a class="headerlink" href="#isalnum" title="Permalink to this headline">¶</a></h3>
+<p>Returns True if a string consists only of alphanumeric characters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;test123&quot;</span>
+<span class="n">s</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="c1"># True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="split">
+<h3>split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h3>
+<p>Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done (thus, the list will have at most maxsplit + 1 elements). If maxsplit is not specified or 1, then there is no limit on the number of splits (all possible splits are made).
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1"># [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]</span>
+<span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># [&#39;1&#39;, &#39;2,3&#39;]</span>
+<span class="s1">&#39;1,2,,3,&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1"># [&#39;1&#39;, &#39;2&#39;, &#39;&#39;, &#39;3&#39;, &#39;&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="strip">
+<h3>strip<a class="headerlink" href="#strip" title="Permalink to this headline">¶</a></h3>
+<p>Returns copy of string without surrounding whitespace, if any.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;    test &quot;</span>
+<span class="n">s</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># &quot;test&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="join">
+<h3>join<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h3>
+<p>Return a string which is the concatenation of the strings in iterable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+
+<span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aaa&#39;</span><span class="p">,</span> <span class="s1">&#39;bbb&#39;</span><span class="p">,</span> <span class="s1">&#39;ccc&#39;</span><span class="p">]</span>
+
+<span class="c1"># join all the strings in the list with nothing in str</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">aaabbbccc</span>
+
+<span class="c1"># join all the strings in the list with comma in str</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">aaa</span><span class="p">,</span><span class="n">bbb</span><span class="p">,</span><span class="n">ccc</span>
+
+<span class="c1"># join all the strings in the list with dash in str</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">aaa</span><span class="o">-</span><span class="n">bbb</span><span class="o">-</span><span class="n">ccc</span>
+
+<span class="c1"># join all the strings in the list with new line in str</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">aaa</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">bbb</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ccc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="str-vs-repr">
+<h3>str vs repr<a class="headerlink" href="#str-vs-repr" title="Permalink to this headline">¶</a></h3>
+<p>See [this GeeksForGeeks article](<a class="reference external" href="https://www.geeksforgeeks.org/strvsreprinpython/">https://www.geeksforgeeks.org/strvsreprinpython/</a>) for more info.</p>
+</div>
+</div>
+<div class="section" id="iterators">
+<h2>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<p>In Python, an iterator is an object with a countable number of values that can be iterated upon.
+An iterator is an object which implements the iterator protocol, consisting of __iter__() and __next__().
+The __iter__() method returns an iterator on the object, and the __next__() method gets the next item using the iterator, or raises a StopIteration exception if the end of the iterable is reached.</p>
+<div class="section" id="iterator-vs-iterable">
+<h3>Iterator vs Iterable<a class="headerlink" href="#iterator-vs-iterable" title="Permalink to this headline">¶</a></h3>
+<p>Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable <em>containers</em> which you can get an iterator from.
+All these objects have a __iter__() method which is used to get an iterator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">)</span>
+<span class="n">myit</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">mytuple</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myit</span><span class="p">))</span> <span class="c1"># apple</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myit</span><span class="p">))</span> <span class="c1"># banana</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myit</span><span class="p">))</span> <span class="c1"># cherry</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">myit</span><span class="p">))</span> <span class="c1"># raises StopIteration exception</span>
+</pre></div>
+</div>
+<p>Note    next(obj) is the same as obj.__next__().</p>
+</div>
+<div class="section" id="how-for-loop-works">
+<h3>How for loop works<a class="headerlink" href="#how-for-loop-works" title="Permalink to this headline">¶</a></h3>
+<p>The for loop can iterate any iterable.
+The for loop in Python is actually implemented like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iter_obj</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span> <span class="c1"># create iterator object from iterable</span>
+
+<span class="c1"># infinite loop</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                                <span class="n">element</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_obj</span><span class="p">)</span> <span class="c1"># get the next item</span>
+                                <span class="c1"># do something with element</span>
+                <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                                <span class="k">break</span>
+</pre></div>
+</div>
+<p>So, internally, the for loop creates an iterator object by calling iter() on the iterable, and then repeatedly calling next() until a StopIteration exception is raised.</p>
+</div>
+<div class="section" id="creating-an-iterator">
+<h3>Creating an Iterator<a class="headerlink" href="#creating-an-iterator" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of an iterator that will give us the next power of two in each iteration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PowTwo</span><span class="p">:</span>
+                <span class="sd">&quot;&quot;&quot;Class to implement an iterator of powers of two&quot;&quot;&quot;</span>
+
+                <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="nb">max</span>
+
+                <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">return</span> <span class="bp">self</span>
+
+                <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">:</span>
+                                                <span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+                                                <span class="k">return</span> <span class="n">result</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                                <span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>Now we can use it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">PowTwo</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">16</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">StopIteration</span>
+</pre></div>
+</div>
+<p>Or, alternatively, using a for loop:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">PowTwo</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="gp">... </span>             <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1</span>
+<span class="go">2</span>
+<span class="go">4</span>
+<span class="go">8</span>
+<span class="go">16</span>
+<span class="go">32</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functional-iteration">
+<h2>Functional Iteration<a class="headerlink" href="#functional-iteration" title="Permalink to this headline">¶</a></h2>
+<p>For some good explanations and examples for the following functions, see [here](<a class="reference external" href="http://book.pythontips.com/en/latest/map_filter.html">http://book.pythontips.com/en/latest/map_filter.html</a>).</p>
+<p>Note that map() and filter() both return iterators, so if you want a list, you need to use list() on the output. However, this is typically better accomplished with list comprehensions or for loops for the sake of readability.</p>
+<div class="section" id="map">
+<h3>map<a class="headerlink" href="#map" title="Permalink to this headline">¶</a></h3>
+<p>map() applies a function to all the items in a list.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span><span class="p">(</span><span class="n">function_to_apply</span><span class="p">,</span> <span class="n">list_of_inputs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="n">squared</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>can be accomplished more easily with map():</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">items</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filter">
+<h3>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h3>
+<p>filter() creates a list of elements for which a function returns True.</p>
+<p>Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">number_list</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">less_than_zero</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">number_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">less_than_zero</span><span class="p">)</span> <span class="c1"># [5, 4, 3, 2, 1]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reduce">
+<h3>reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">¶</a></h3>
+<p>reduce() is used to perform a rolling computation on a list.</p>
+<p>Here’s an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="n">number_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">product</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">((</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">),</span> <span class="n">number_list</span><span class="p">)</span> <span class="c1"># output: 24</span>
+</pre></div>
+</div>
+<p>Often times, an explicit for loop is more readable than using reduce().
+But if you’re trying to flex in an interview, and the problem calls for it, it could be a nice way to subtly show your understanding of functional programming.</p>
+</div>
+</div>
+<div class="section" id="decorators">
+<h2>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+<p>A decorator is a function returning another function, usually applied as a function transformation using the &#64;wrapper syntax. This syntax is merely syntactic sugar.</p>
+<p>The following two function definitions are semantically equivalent:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
+<div class="section" id="classmethod">
+<h3>&#64;classmethod<a class="headerlink" href="#classmethod" title="Permalink to this headline">¶</a></h3>
+<p>Transform a method into a class method. A class method receives the class as implicit first argument, just like how an instance method receives the instance. To declare a class method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+                <span class="nd">@classmethod</span>
+                <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>A class method can be called either on the class (like C.f()) or on an instance (like C().f()). The instance is ignored except for its class. If a class method is called for a derived class, the derived class object is passed as the implied first argument.</p>
+<p>Note that class methods are not the same as C++ or Java static methods. If you want those, see [&#64;staticmethod](#staticmethod).</p>
+</div>
+<div class="section" id="staticmethod">
+<h3>&#64;staticmethod<a class="headerlink" href="#staticmethod" title="Permalink to this headline">¶</a></h3>
+<p>Transform a method into a static method. A static method does not receive an implicit first argument. To declare a static method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+                <span class="nd">@staticmethod</span>
+                <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>A static method can be called either on the class (like C.f()) or on an instance (like C().f()). Static methods in Python are similar to those found in Java or C++.</p>
+</div>
+<div class="section" id="property">
+<h3>&#64;property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
+<p>Return a property attribute.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">property</span><span class="p">(</span><span class="n">fget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>fget is a function for getting an attribute value. fset is a function for setting an attribute value. fdel is a function for deleting an attribute value. doc creates a docstring for the attribute.</p>
+<p>The following is a typical use case for defining a managed attribute x:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+                <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+                <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+
+                <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+                <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span> <span class="s2">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or, equivalently:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+                <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="nd">@property</span>
+                <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="sd">&quot;&quot;&quot;I&#39;m the &#39;x&#39; property.&quot;&quot;&quot;</span>
+                                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+                <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+                <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+
+                <span class="nd">@x</span><span class="o">.</span><span class="n">deleter</span>
+                <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</pre></div>
+</div>
+<p>If c is an instance of C, then c.x will invoke the getter; c.x = value will invoke the setter; and del c.x the deleter.</p>
+<p>If doc is not provided, the property will copy fget’s docstring, if it exists. Thus, it is straightforward to create readonly properties with the &#64;property decorator:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Parrot</span><span class="p">:</span>
+                <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span> <span class="o">=</span> <span class="mi">100000</span>
+
+                <span class="nd">@property</span>
+                <span class="k">def</span> <span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                                <span class="sd">&quot;&quot;&quot;Get the current voltage.&quot;&quot;&quot;</span>
+                                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span>
+</pre></div>
+</div>
+<p>The &#64;property decorator turns the voltage() method into a “getter” for a readonly attribute with the same name, and it sets the docstring for voltage to “Get the current voltage.”</p>
+<p>For more information, check out [the documentation](<a class="reference external" href="https://docs.python.org/3/library/functions.html#property">https://docs.python.org/3/library/functions.html#property</a>) and [this Programiz article](<a class="reference external" href="https://www.programiz.com/pythonprogramming/property">https://www.programiz.com/pythonprogramming/property</a>).</p>
+</div>
+</div>
+<div class="section" id="generators">
+<h2>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h2>
+<p>Generators are simpler ways of creating [iterators](#iterators). The overhead of creating __iter__(), __next__(), raising StopIteration, and keeping track of state can all be handled internally by a generator.</p>
+<p>A generator is a function that returns an object (iterator) which we can iterate over, one value at a time.</p>
+<div class="section" id="using-yield">
+<h3>Using yield<a class="headerlink" href="#using-yield" title="Permalink to this headline">¶</a></h3>
+<p>To create a generator, simply define a function using a yield statement.</p>
+<p>A function containing at least one yield statement (it may contain other yield and return statements) becomes a generator.</p>
+<p>Both yield and return return some value from a function. The difference is that, while a return statement terminates a function entirely, yield pauses the function, saving its state and continuing from where it left off in successive calls.</p>
+<p>Once a function yields, it is paused and control is transferred back to the caller. Local variables and their states are remembered between successive calls. When the function terminates, StopIteration is raised automatically on further calls.</p>
+<p>Below is a simple generator example, for the sake of demonstrating how generators work.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_gen</span><span class="p">():</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed first&#39;</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">n</span>
+
+                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed second&#39;</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">n</span>
+
+<span class="c1"># Without for loop:</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">my_gen</span><span class="p">()</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># &#39;This is printed first&#39;</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># &#39;This is printed second&#39;</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># Traceback ... StopIteration</span>
+
+<span class="c1"># With for loop:</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">my_gen</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Below is a more typical example. Generators often use loops with a suitable terminating condition.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">my_str</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span>      <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                                <span class="k">yield</span> <span class="n">my_str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>for char in reverse(“hello”):</dt><dd><p>print(char) # prints each char reverse on a new line</p>
+</dd>
+</dl>
+<p>Note that the above example works not just with strings, but also other kinds of iterables.</p>
+</div>
+<div class="section" id="generator-expressions">
+<h3>Generator Expressions<a class="headerlink" href="#generator-expressions" title="Permalink to this headline">¶</a></h3>
+<p>Generator expressions can be used to create an anonymous generator function. The syntax is similar to that of [list comprehensions](#listcomprehensions), but uses parentheses instead of square brackets. However, while a list comprehension produces the entire list, generator expressions produce one item at a time.</p>
+<p>Generator expressions are kind of lazy, producing items only when asked for. For this reason, using a generator expression is much more memory efficient than an equivalent list comprehension.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">item_squared</span> <span class="o">=</span> <span class="p">(</span><span class="n">item</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">item_squared</span><span class="p">))</span> <span class="c1"># 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">item_squared</span><span class="p">))</span> <span class="c1"># 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">item_squared</span><span class="p">))</span> <span class="c1"># 36</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">item_squared</span><span class="p">)</span> <span class="c1"># StopIteration</span>
+</pre></div>
+</div>
+<p>Generator expressions can be used inside function calls. When used in such a way, the round parentheses can be dropped.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span> <span class="c1"># 46</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">items</span><span class="p">)</span> <span class="c1"># 36</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="other-builtin-functions">
+<h2>Other Builtin Functions<a class="headerlink" href="#other-builtin-functions" title="Permalink to this headline">¶</a></h2>
+<p>For a complete list of builtins in Python 3, see [the documentation](<a class="reference external" href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a>).
+abs()
+Returns the absolute value of a number, either an integer or floating point number.
+If the argument is a complex number, its magnitude is returned.</p>
+<div class="section" id="any">
+<h3>any<a class="headerlink" href="#any" title="Permalink to this headline">¶</a></h3>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>any() takes any iterable as an argument and returns True if at least one element of the iterable is True.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>        <span class="c1"># True</span>
+<span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>          <span class="c1"># False</span>
+<span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>      <span class="c1"># True</span>
+<span class="nb">any</span><span class="p">([])</span>                                          <span class="c1"># False</span>
+
+<span class="nb">any</span><span class="p">(</span><span class="s2">&quot;This is good&quot;</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">any</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>                                                <span class="c1"># True</span>
+<span class="nb">any</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                                          <span class="c1"># False</span>
+</pre></div>
+</div>
+<p>See [here](<a class="reference external" href="https://www.programiz.com/pythonprogramming/methods/builtin/any">https://www.programiz.com/pythonprogramming/methods/builtin/any</a>) for more info.</p>
+<p>Check if any tuples contain a negative value:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">list_ranges</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="all">
+<h3>all<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>all() takes any iterable as an argument and returns True if all the elements of the iterable are True.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>       <span class="c1"># True</span>
+<span class="nb">all</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>         <span class="c1"># False</span>
+<span class="nb">all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>       <span class="c1"># False</span>
+<span class="nb">all</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># False</span>
+<span class="nb">all</span><span class="p">([])</span>                                         <span class="c1"># True</span>
+
+<span class="nb">all</span><span class="p">(</span><span class="s2">&quot;This is good&quot;</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">all</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>                                                <span class="c1"># True</span>
+<span class="nb">all</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>                                          <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>See [here](<a class="reference external" href="https://www.programiz.com/pythonprogramming/methods/builtin/all">https://www.programiz.com/pythonprogramming/methods/builtin/all</a>) for more info.</p>
+<p>Check if all elements of a list are x:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="n">x</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">alst</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chr">
+<h3>chr<a class="headerlink" href="#chr" title="Permalink to this headline">¶</a></h3>
+<p>Returns the string representing a character whose Unicode code point is the integer passed.</p>
+<p>For example, chr(97) returns the string a, while chr(8364) returns the string €.</p>
+<p>This is the inverse of [ord()](#ord).</p>
+<p>enumerate()
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Returns an enumerate object. iterable must be a sequence, iterator, or some object which suports iteration. The __next__() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to zero) and the values obtained from iterating over the iterable.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">))</span>                                                        <span class="c1"># [(0, &#39;Spring&#39;), (1, &#39;Summer&#39;), (2, &#39;Fall&#39;), (3, &#39;Winter&#39;)]</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>                <span class="c1"># [(1, &#39;Spring&#39;), (2, &#39;Summer&#39;), (3, &#39;Fall&#39;), (4, &#39;Winter&#39;)]</span>
+</pre></div>
+</div>
+<p>This is equivalent to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="n">start</span>
+                <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+                                <span class="k">yield</span> <span class="n">n</span><span class="p">,</span> <span class="n">elem</span>
+                                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="input">
+<h3>input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h3>
+<p>Gets input from the user.
+Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">([</span><span class="n">prompt</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;&gt; &#39;</span><span class="p">)</span>
+<span class="go">&gt; Monty Python&#39;s Flying Circus</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">&quot;Monty Python&#39;s Flying Circus&quot;</span>
+</pre></div>
+</div>
+<p>If the prompt arg is present, it is written to stdout without a trailing newline.</p>
+</div>
+<div class="section" id="isinstance">
+<h3>isinstance<a class="headerlink" href="#isinstance" title="Permalink to this headline">¶</a></h3>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Built in Types</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span>
+<span class="nb">float</span>
+<span class="nb">complex</span>
+<span class="nb">str</span>
+<span class="nb">list</span>
+<span class="nb">dict</span>
+<span class="nb">tuple</span>
+<span class="nb">set</span>
+</pre></div>
+</div>
+<p>Returns true if the object argument is an instance of the classinfo argument, or of a (direct, indirect, or virtual) subclass thereof. Returns false otherwise.</p>
+<p>If classinfo is a tuple of type objects, return true if object is an instance of any of <em>any</em> of these types.</p>
+</div>
+<div class="section" id="len">
+<h3>len<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h3>
+<p>Return the length of an object. The argument may be a sequence (e.g. string, bytes, tuple, list, or range) or a collection (e.g. dictionary, set, frozen set).</p>
+</div>
+<div class="section" id="max">
+<h3>max<a class="headerlink" href="#max" title="Permalink to this headline">¶</a></h3>
+<p>Returns the max item in an iterable, or the max of multiple arguments passed.</p>
+</div>
+<div class="section" id="min">
+<h3>min<a class="headerlink" href="#min" title="Permalink to this headline">¶</a></h3>
+<p>Returns the min item in an iterable, or the min of multiple arguments passed.</p>
+</div>
+<div class="section" id="ord">
+<h3>ord<a class="headerlink" href="#ord" title="Permalink to this headline">¶</a></h3>
+<p>Given a string representing one Unicode character, return an integer representing the Unicode code point of that character.</p>
+<p>For example, ord(‘a’) returns the integer 97. ord(‘€’) (Euro sign) return 8364.</p>
+<p>This is the inverse of [chr()](#chr).</p>
+</div>
+<div class="section" id="pow">
+<h3>pow<a class="headerlink" href="#pow" title="Permalink to this headline">¶</a></h3>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[,</span> <span class="n">z</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Return x to the power y; if z is present, return x to the power y, modulo z (computed more efficiently than pow(x, y) % z).
+pow(x, y) is equivalent to x**y.</p>
+<p>type
+…</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With one argument, return the type of object. The return value is a type object and generally the same object as returned by object.__class__.</p>
+<p>E.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># class &#39;int&#39;</span>
+</pre></div>
+</div>
+<p>The [isinstance()](#isinstance) function is recommended for testing the type of an object, since it accounts for subclasses.</p>
+</div>
+</div>
+<div class="section" id="common-gotchas">
+<h2>Common Gotchas<a class="headerlink" href="#common-gotchas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nested-list-initialization">
+<h3>Nested List Initialization<a class="headerlink" href="#nested-list-initialization" title="Permalink to this headline">¶</a></h3>
+<p>When creating a list of lists, be sure to use the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Read the section on [list initialization](#listinitialization) to see why.</p>
+</div>
+<div class="section" id="mutable-default-arguments">
+<h3>Mutable Default Arguments<a class="headerlink" href="#mutable-default-arguments" title="Permalink to this headline">¶</a></h3>
+<p>If we try to do something like def f(x, arr=[]) this will most likely create undesirable behavior.
+Default arguments are resolved <em>only once</em>, when the function is first defined. The same arg will be used in successive function calls. In the case of a mutable type like a list, this means that changes made to the list in one call will be carried over in successive calls.
+Instead, consider doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">arr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">arr</span><span class="p">:</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="functions.html" class="btn btn-neutral float-right" title="Built In Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Python 3 Code Snippets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, JT.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
