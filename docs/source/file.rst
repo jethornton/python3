@@ -1,8 +1,9 @@
 File I/O
 ========
 
-The open() fuction returns file object if sucessful. 
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
 
+Open file and return a corresponding file object. If the file cannot be opened, an OSError is raised.
 ::
 
   with open(file_name, mode) as f:

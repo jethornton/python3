@@ -10,10 +10,14 @@ Python 3 Code Snippets
    :maxdepth: 2
    :caption: Contents:
 
+   python
+   functions
    main
    file
    keyboard
    event
+   datetime
+   class
 
 
 Indices and tables
