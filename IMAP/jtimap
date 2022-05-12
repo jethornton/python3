@@ -1,0 +1,267 @@
+#!/usr/bin/python3
+
+import imaplib
+import email
+from email.header import decode_header
+import sys, os, datetime
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QDialog, QLabel,
+	QLineEdit, QDialogButtonBox, QFormLayout)
+from PyQt5 import uic
+
+# account credentials
+username = "cl@gnipsel.com"
+password = "5J6PSLw8Zgx7B2dRcEVU"
+
+path = os.path.dirname(__file__)
+Ui_Dialog, _ = uic.loadUiType(os.path.join(path,'newmail.ui'))
+
+class InputDialog(QDialog):
+	def __init__(self, parent=None):
+		super().__init__(parent)
+		self.setWindowTitle('New Email')
+		self.email = QLineEdit(self)
+		self.password = QLineEdit(self)
+		buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self);
+
+		layout = QFormLayout(self)
+		layout.addRow("Email Provider", self.email)
+
+		layout.addRow("Email Address", self.email)
+		layout.addRow("Password", self.password)
+		layout.addWidget(buttonBox)
+
+		buttonBox.accepted.connect(self.accept)
+		buttonBox.rejected.connect(self.reject)
+
+	def getInputs(self):
+		return (self.email.text(), self.password.text())
+
+class main(QMainWindow):
+	def __init__(self):
+		super().__init__()
+		if os.path.split(sys.argv[0])[0] == '/usr/bin':
+			self.lib_path = '/usr/lib/libjtimap'
+			print('Installed')
+			devel = False
+			if len(sys.argv) > 1:
+				if sys.argv[1] == 'devel':
+					devel = True
+		if os.path.split(sys.argv[0])[0] == '.':
+			self.lib_path = os.path.split(os.path.realpath(sys.argv[0]))[0]
+			print('In Development')
+		uic.loadUi(os.path.join(self.lib_path, 'jtimap.ui'), self)
+		#self.setGeometry(0, 250, 500, 300)
+		self.setWindowTitle("JT Mail Reader")
+		self.actionGet_Mail.triggered.connect(self.getMail)
+		self.actionAddMailbox.triggered.connect(self.newMailBox)
+		self.getMail1PB.clicked.connect(self.getMail)
+		self.actionPrint_Test.triggered.connect(self.testing)
+		self.mailLW_0.itemClicked.connect(self.showMessage)
+		self.mail = []
+		self.From = ''
+		self.To = ''
+		self.Subject = ''
+		self.Body = ''
+		self.setupSB()
+		self.statusBar().showMessage("JT Mail")
+		#print(self.mailboxesTB.currentIndex())
+		#print(self.mailboxesTB.itemText(self.inBoxTB.currentIndex()))
+		self.testPB.clicked.connect(self.testing)
+		self.show()
+		#self.getMail() newEmailLE
+
+	def clean(self, text):
+		# clean text for creating a folder
+		return "".join(c if c.isalnum() else "_" for c in text)
+
+
+	def testing(self):
+		i = self.mailboxesTB.currentIndex()
+		print(self.mailboxesTB.itemText(i))
+		"""
+		print(getattr(self, f'mailLW_{i}').currentRow())
+		index = getattr(self, f'mailLW_{i}').currentIndex()
+		print(getattr(self, f'mailLW_{i}').itemText(index))
+		print(getattr(self, f'mailLW_{i}').objectName())
+		print(getattr(self, f'mailLW_{i}').currentItemName())
+		"""
+		
+
+	def newMailBox(self):
+		dialog = InputDialog()
+		if dialog.exec():
+			email, password = dialog.getInputs()
+			print(f'Email: {email} Password: {password}')
+			print(f'Tabs: {self.mailboxesTB.count()}')
+
+	def getMail(self):
+
+		#print('getMail2')
+		# create an IMAP4 class with SSL
+		try:
+			imap = imaplib.IMAP4_SSL("imap.dreamhost.com")
+		except:
+			self.statusbar.showMessage('Error Connecting to Host')
+			return
+		self.mail.clear()
+		mailbox = self.mailboxesTB.itemText(self.mailboxesTB.currentIndex())
+		self.statusbar.showMessage(f'Getting Mail for {mailbox}')
+
+		# authenticate
+		response, data = imap.login(username, password)
+		print(f'Login: {response}')
+
+		status, messages = imap.select("INBOX")
+		#print(f'Select: {status}')
+
+		# total number of emails converted to int
+		messages = int(messages[0])
+
+		# number of top emails to fetch
+		top = 3
+		for i in range(messages, messages - top, -1):
+			# fetch the email message by ID
+			response, msg = imap.fetch(str(i), "(RFC822)")
+			#print(f'Fetch: {response}')
+
+			for response in msg:
+				if isinstance(response, tuple):
+					# parse a bytes email into a message object
+					msg = email.message_from_bytes(response[1])
+					# decode the email subject
+					subject, encoding = decode_header(msg["Subject"])[0]
+					if isinstance(subject, bytes):
+						# if it's a bytes, decode to str
+						subject = subject.decode(encoding)
+					#print(f'Subject: {subject}')
+					# decode email sender
+
+				From, encoding = decode_header(msg.get("From"))[0]
+				if isinstance(From, bytes):
+					From = From.decode(encoding)
+
+				Date, encoding = decode_header(msg.get("Date"))[0]
+				if isinstance(Date, bytes):
+					Date = Date.decode(encoding)
+
+			# if the email message is multipart
+			if msg.is_multipart():
+				#print('is_multipart')
+				# iterate over email parts
+				for part in msg.walk():
+					# extract content type of email
+					content_type = part.get_content_type()
+					content_disposition = str(part.get("Content-Disposition"))
+					try:
+						# get the email body
+						body = part.get_payload(decode=True).decode()
+					except:
+						pass
+					if content_type == "text/plain" and "attachment" not in content_disposition:
+						pass
+						# print text/plain emails and skip attachments
+						#print(body)
+					elif "attachment" in content_disposition:
+						# download attachment
+						filename = part.get_filename()
+						if filename:
+							folder_name = clean(subject)
+							if not os.path.isdir(folder_name):
+								# make a folder for this email (named after the subject)
+								os.mkdir(folder_name)
+							filepath = os.path.join(folder_name, filename)
+							# download attachment and save it
+							open(filepath, "wb").write(part.get_payload(decode=True))
+			else:
+				#print('not multipart')
+				# extract content type of email
+				content_type = msg.get_content_type()
+				# get the email body
+				Body = msg.get_payload(decode=True)
+				if isinstance(Body, bytes):
+					Body = Body.decode()
+				#print(f'Body Type: {type(Body)}')
+				#if content_type == "text/plain":
+					# print only text email parts
+					#print(body)
+			if content_type == "text/html":
+				print('text/html')
+				# if it's HTML, create a new HTML file and open it in browser
+				#folder_name = self.clean(subject)
+				#if not os.path.isdir(folder_name):
+					# make a folder for this email (named after the subject)
+				#	os.mkdir(folder_name)
+				#filename = "index.html"
+				#filepath = os.path.join(folder_name, filename)
+				# write the file
+				#open(filepath, "w").write(body)
+				# open in the default browser
+				#webbrowser.open(filepath)
+			#print("="*100)
+
+
+			self.mail.append({'ID': i, 'Subject': subject, 'From':From,
+				'Date':Date, 'Body':Body})
+
+
+
+			#print("Subject:", subject)
+			#print("From:", From)
+
+		response, data = imap.close() # close the selected mailbox
+		# ('OK', [b'Close completed (0.001 + 0.000 + 0.021 secs).'])
+		response, data = imap.logout() # logout of the connection
+		# ('BYE', [b'Logging out'])
+
+		i = self.mailboxesTB.currentIndex()
+		#print(f'Index: {i}')
+		for mail in self.mail:
+			getattr(self, f'mailLW_{i}').addItem(mail['Subject'])
+
+	def showMessage(self, item):
+		i = self.mailboxesTB.currentIndex()
+		r = getattr(self, f'mailLW_{i}').currentRow()
+		#print(f'Mail ID: {self.mail[r]["ID"]}')
+		#print(f'Subject: {self.mail[r]["Subject"]}')
+		#print(f'Date: {self.mail[r]["Date"]}')
+		print(f'Body: {self.mail[r]["Body"]}')
+		# print(f''{}')
+		#j = f.rfind('<')
+		#self.lbl1.setText(f[j+1:-1])
+		#self.bodyPTE.appendPlainText(self.mail[r][2])
+		self.senderLB.setText(self.mail[r]['Subject'])
+		self.emailLB.setText(self.mail[r]['From'])
+		self.bodyPTE.clear()
+		self.bodyPTE.appendPlainText(self.mail[r]["Body"])
+
+		#self.statusBar().showMessage(f'{self.mail1LW.currentRow()} {item.text()}')
+		#self.lbl1.setText(f'{self.mail[self.mail1LW.currentRow()][1]}')
+
+	def setupSB(self):
+		self.lbl1 = QLabel()
+		self.lbl1.setStyleSheet('border: 0; color:  blue;')
+		self.lbl2 = QLabel("Data : ")
+		self.lbl2.setStyleSheet('border: 1; color:  red;')
+		self.lbl3 = QLabel("Label: ")
+		self.lbl3.setStyleSheet('border: 0; color:  blue;')
+
+		#self.statusBar().reformat()
+		self.statusBar().setStyleSheet('border: 2; background-color: #FFF8DC;')
+		#self.statusBar().setStyleSheet("QStatusBar::item {border: none;}") 
+
+		#self.statusBar().addPermanentWidget(VLine())    # <---
+		self.statusBar().addPermanentWidget(self.lbl1)
+		#self.statusBar().addPermanentWidget(VLine())    # <---
+		self.statusBar().addPermanentWidget(self.lbl2)
+		#self.statusBar().addPermanentWidget(VLine())    # <---
+		self.statusBar().addPermanentWidget(self.lbl3)
+		#self.statusBar().addPermanentWidget(VLine())    # <---
+
+		self.lbl1.setText("Label: Hello")
+		self.lbl2.setText(f'Date : {datetime.datetime.now().strftime("%D")}')
+		self.lbl3.setText("Data : 15-09-2019")
+
+if __name__ == '__main__':
+	app = QApplication(sys.argv)
+	gui = main()
+	sys.exit(app.exec_())
