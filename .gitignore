@@ -1,6 +1,0 @@
-__pycache__/
-*.egg-info
-*.pyc
-/old files
-*.txt
-docs/build
