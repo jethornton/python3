@@ -4,12 +4,12 @@ import os
 import hashlib
 
 def chunk_reader(fobj, chunk_size=1024):
-    """Generator that reads a file in chunks of bytes"""
-    while True:
-        chunk = fobj.read(chunk_size)
-        if not chunk:
-            return
-        yield chunk
+	"""Generator that reads a file in chunks of bytes"""
+	while True:
+		chunk = fobj.read(chunk_size)
+		if not chunk:
+			return
+		yield chunk
 
 def check_for_duplicates(paths, hash=hashlib.sha1):
     hashes = {}

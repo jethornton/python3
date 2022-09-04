@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# status: working
+
 #from __future__ import print_function   # py2 compatibility
 from collections import defaultdict
 import hashlib

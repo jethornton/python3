@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-#! /usr/bin/env python
+
+# status: unknown or broken
 
 # Originally taken from:
 # http://www.pythoncentral.io/finding-duplicate-files-with-python/
@@ -122,7 +123,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
-
-Share
-Edit
 

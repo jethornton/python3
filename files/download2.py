@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# status: unknown or broken
+
 import sys, time, requests
 
 # use a context manager to make an HTTP request and file

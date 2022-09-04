@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# status: unknown or broken
+
 import sys
 import urllib.request
 
