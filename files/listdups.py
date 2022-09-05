@@ -33,7 +33,6 @@ def dupes(filelist):
 	d = {}
 	result = False
 	for file in filelist:
-		#fullname = os.path.join(dirname,f)
 		sz = os.path.getsize(file)
 		if sz in d:
 			d[sz].append(file)
@@ -43,14 +42,21 @@ def dupes(filelist):
 
 	for k, v in d.items():
 		if len(v) > 1:
-			result = True
-			print('Duplicate Files')
-			for i in v:
+			test = []
+			for i in v: # get md5sum for each file of the same length
 				with open(i, 'rb') as f2c:
 					data = f2c.read()
 					md5 = hashlib.md5(data).hexdigest()
-				print(f'File: {i}\nMD5: {md5}')
-
+					test.append(md5)
+			if len(set(test)) < len(test): # check for exact matches
+				result = True
+				print('Duplicate Files')
+				for i in v:
+					with open(i, 'rb') as f2c:
+						data = f2c.read()
+						md5 = hashlib.md5(data).hexdigest()
+					print(f'File: {i}\nMD5: {md5}')
+	print(f'\n{len(filelist)} Files Checked')
 	return result
 
 main()
