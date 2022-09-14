@@ -39,24 +39,26 @@ def dupes(filelist):
 		else:
 			d[sz] = []
 			d[sz].append(file)
-
+	dupCount = 0
 	for k, v in d.items():
-		if len(v) > 1:
-			test = []
+		if len(v) > 1: # more than one file of the same size
+			checksum = []
 			for i in v: # get md5sum for each file of the same length
 				with open(i, 'rb') as f2c:
 					data = f2c.read()
 					md5 = hashlib.md5(data).hexdigest()
-					test.append(md5)
-			if len(set(test)) < len(test): # check for exact matches
+					checksum.append(md5)
+			if len(set(checksum)) < len(checksum): # check for exact matches
 				result = True
-				print('Duplicate Files')
-				for i in v:
-					with open(i, 'rb') as f2c:
+				print('\nDuplicate Files')
+				for file in v:
+					with open(file, 'rb') as f2c:
 						data = f2c.read()
-						md5 = hashlib.md5(data).hexdigest()
-					print(f'File: {i}\nMD5: {md5}')
-	print(f'\n{len(filelist)} Files Checked')
+						thismd5 = hashlib.md5(data).hexdigest()
+						if md5.count(thismd5) > 0:
+							dupCount += 1
+							print(f'File: {file}\nMD5: {thismd5}')
+	print(f'\n{len(filelist)} Files Checked, {dupCount} Duplicates')
 	return result
 
 main()
