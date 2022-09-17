@@ -48,14 +48,16 @@ def dupes(filelist):
 					data = f2c.read()
 					md5 = hashlib.md5(data).hexdigest()
 					checksum.append(md5)
+
 			if len(set(checksum)) < len(checksum): # check for exact matches
 				result = True
-				print('\nDuplicate Files')
+				print('\n\tDuplicate Files')
+				md5List = []
 				for file in v:
 					with open(file, 'rb') as f2c:
 						data = f2c.read()
 						thismd5 = hashlib.md5(data).hexdigest()
-						if md5.count(thismd5) > 0:
+						if checksum.count(thismd5) > 1:
 							dupCount += 1
 							print(f'File: {file}\nMD5: {thismd5}')
 	print(f'\n{len(filelist)} Files Checked, {dupCount} Duplicates')
