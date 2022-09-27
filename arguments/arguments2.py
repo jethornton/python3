@@ -4,6 +4,7 @@
 
 import os, argparse
 parser = argparse.ArgumentParser()
+# add argument with a default if nothing is passed
 parser.add_argument('-p', '--path', help="a directory to search",
 	default=os.getcwd(), required=False)
 

@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+
+from collections import OrderedDict
+
+with open('test.ini', 'r') as ini:
+	contents = ini.readlines()
+
+sections = OrderedDict()
+lastSection = ''
+for index, line in enumerate(contents):
+	if line.startswith('['):
+		sections[line] = [index, 1]
+		if len(sections) > 1:
+			sections[lastSection][1] = index
+			lastSection = line
+
+#print(sections)
+
+#for key, value in sections.items():
+#	print(key.strip(), value)
+
+'''
+for section in sections:
+	print(sections[section])
+
+
+mesastart = contents.index('[MESA]\n')
+for i, line in enumerate(contents[mesastart+1:]):
+	if line.startswith('['):
+		print(line)
+		mesaend = contents.index(line)
+		break
+
+
+print(f'MESA Start: {mesastart} End: {mesaend}')
+#print(contents[mesastart:mesaend])
+
+for index, line in enumerate(contents):
+	if index > mesastart and index < mesaend:
+			if line.startswith('VERSION'):
+				contents[index] = 'VERSION = 0.7.3\n'
+
+with open('test.ini', 'w') as ini:
+	ini.writelines(contents)
+
+
+for line in contents[mesastart:mesaend]:
+	if line.startswith('VERSION'):
+		line = 'VERSION = 0.7.3\n'
+
+
+#print(mesa)
+
+emc = contents.index('[EMC]\n')
+#print(emc)
+
+for line in contents[mesa:emc]:
+	if line.startswith('VERSION'):
+		line = 'VERSION = 1.2.2'
+		print(line)
+
+
+
+print(type(contents))
+
+for line in contents:
+	if line == '[MESA]': 
+		print(line)
+
+
+for i in range(len(contents)):
+	if 
+
+	for line in f:
+		if line.startswith('['):
+			print(line)
+'''
+
