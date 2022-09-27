@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# status: working
+
 '''
 Program to save comments and extra blank lines in an ini file
 '''
