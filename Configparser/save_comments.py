@@ -16,7 +16,7 @@ def save_comments(config_file):
 	comments = OrderedDict() # create the ordered dictionary
 	firstSection = False
 	for index, line in enumerate(content):
-		if line.startswith(test) or line.strip() == '': # not a key:value pair
+		if line.strip().startswith(test) or line.strip() == '': # not a key:value pair
 			comments[index] = line
 		# new section always has a preceeding blank line after the first section
 		if line.strip().startswith('['):
