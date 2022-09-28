@@ -26,7 +26,7 @@ class main():
 		parser.add_argument('-f', '--file', help="the file name to test",
 			default='test.ini', required=False)
 		parser.add_argument('-a', '--all', help="create files for each step",
-			default=True, required=False)
+			default='True', required=False)
 		args = parser.parse_args()
 		name = os.path.splitext(args.file)[0]
 		ext = os.path.splitext(args.file)[1]
@@ -34,13 +34,14 @@ class main():
 		self.comment_file = os.path.join(args.path, name + "_comments" + ext)
 		self.parsed_file = os.path.join(args.path, name + "_parsed" + ext)
 		self.output_file = os.path.join(args.path, name + "_out" + ext)
-		self.all = args.all
+		self.all = args.all == 'True'
 		self.process_ini()
 
 	def process_ini(self):
 		#print(f'Input File: {self.input_file}')
 		#print(f'Output File: {self.output_file}')
 		#print(f'Save All: {self.all}')
+		#print(type(self.all))
 		# First save the comments and blank lines to a dictionary
 		comment_dict = self.save_comments()
 		if self.all:
@@ -78,13 +79,12 @@ class main():
 		for section in config.sections():
 			for key, value in config.items(section):
 				config.set(section, key, "Changed")
-		# write the new config to the config file
-		if self.all:
+		if self.all: # save the parsed file
 			with open(self.parsed_file, 'w') as file:
 				config.write(file)
-		else:
-			with open(self.output_file, 'w') as file:
-				config.write(file)
+		# write the new config to the config file
+		with open(self.output_file, 'w') as file:
+			config.write(file)
 
 	def restore_comments(self, comment_dict):
 		with open(self.output_file, 'r') as file:
