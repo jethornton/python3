@@ -64,7 +64,8 @@ class main():
 			# new section always has a preceeding blank line after the first section
 			if line.strip().startswith('['):
 				if firstSection:
-					del comments[index-1]
+					if comments[index-1] == '\n':
+						del comments[index-1]
 				firstSection = True
 		return comments
 
@@ -89,8 +90,13 @@ class main():
 	def restore_comments(self, comment_dict):
 		with open(self.output_file, 'r') as file:
 			lines = file.readlines()
+		# if a comment is in the blank line before a section replace the blank line
 		for (index, comment) in comment_dict.items():
-			lines.insert(index, comment)
+			if len(lines) > index + 1:
+				if lines[index + 1].strip().startswith('['):
+					lines[index] = comment
+				else:
+					lines.insert(index, comment)
 		with open(self.output_file, 'w') as file:
 			file.write(''.join(lines))
 
