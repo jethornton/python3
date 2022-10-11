@@ -4,7 +4,7 @@ from collections import OrderedDict
 
 with open('test.ini','r') as file:
 	content = file.readlines()
-# print(type(content))
+print(type(content))
 sections = OrderedDict() # create the ordered dictionary
 for index, line in enumerate(content):
 	if line.strip().startswith('['):
